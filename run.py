@@ -35,11 +35,11 @@ FTDI_PID = 0x6015
 # imet-xq2/src/main.py
 #
 # Por eso parent.parent corresponde a la raíz del proyecto.
-PROJECT_DIR = Path(__file__).resolve().parent.parent
 
-DATA_DIR = PROJECT_DIR / "data"
+SCRIPT_DIR = Path(__file__).resolve().parent
 
-# Crear carpeta data/ si no existe
+DATA_DIR = SCRIPT_DIR / "data"
+
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -225,7 +225,22 @@ def parse_imet(raw_text, raw_bytes):
         fields = [field.strip() for field in raw_text.split(",")]
 
         # Encontrar dónde comienza la información XQ
-        xq_index = fields.index("XQ")
+        #xq_index = fields.index("XQ")
+
+
+        xq_index = None
+
+        for i, field in enumerate(fields):
+            if "XQ" in field:
+                xq_index = i
+                break
+
+        # Si no contiene XQ, conservamos los datos crudos
+        # pero no lo consideramos un error del programa.
+        if xq_index is None:
+            return record
+
+
 
         # ----------------------------------------------------
         # ADC opcional
@@ -384,7 +399,11 @@ def print_record(record):
     """
 
     if not record["parse_ok"]:
-        print(f"[RAW] {record['raw_data']}")
+        print(
+            f"[OTHER] "
+            f"RAW={record['raw_data']!r} | "
+            f"HEX={record['raw_hex']}"
+        )
         return
 
     print(
