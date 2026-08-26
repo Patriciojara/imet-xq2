@@ -217,7 +217,13 @@ def parse_imet(raw_text, raw_bytes):
     )
 
     # Siempre guardamos los datos originales
-    record["raw_data"] = raw_text
+    # Convertir caracteres de control a texto visible.
+    # Ejemplo: byte 00 -> "\x00"
+    safe_raw_text = raw_text.encode(
+        "unicode_escape"
+    ).decode("ascii")
+
+    record["raw_data"] = safe_raw_text
     record["raw_hex"] = raw_bytes.hex(" ")
     record["parse_ok"] = False
 
