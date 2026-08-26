@@ -27,7 +27,7 @@ def cortar_datos():
 
 
     #print(temp, press, hum, latitude, longitude)
-    return temp, press, hum, latitude, longitude
+    print(temp, press, hum, latitude, longitude)
 
 
 cortar_datos()
