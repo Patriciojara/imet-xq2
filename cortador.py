@@ -9,7 +9,7 @@ def cortar_datos():
     ultimo_archivo = max(archivo_data)
     #print("Último archivo CSV:", ultimo_archivo)
 
-    path = "data" + '\\' + str(ultimo_archivo)
+    path = "data" + '/' + str(ultimo_archivo)
 
     df = pd.read_csv(path, sep=",", encoding="utf-8") # Leemos los datos del dataframe
 
@@ -24,9 +24,9 @@ def cortar_datos():
     hum = round(df['relative_humidity_pct'].iloc[-1], 1)
     latitude = round(df['latitude_deg'].iloc[-1], 6)
     longitude = round(df['longitude_deg'].iloc[-1], 6)
-    
 
-    print(temp, press, hum, latitude, longitude)
+
+    #print(temp, press, hum, latitude, longitude)
     return temp, press, hum, latitude, longitude
 
 
