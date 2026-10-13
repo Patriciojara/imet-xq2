@@ -14,7 +14,7 @@ Antes de comenzar, asegúrate de tener instalado:
 ## Clonar el repositorio
 
 ```bash
-git clone https://github.com/TU_USUARIO/imet-xq2.git
+git clone https://github.com/Patriciojara/imet-xq2.git
 ```
 
 Entrar a la carpeta del proyecto:
