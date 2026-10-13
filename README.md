@@ -174,7 +174,7 @@ git push -u origin nombre-rama
 
 ## Autores
 
-Proyecto desarrollado por Patricio Jara Q. Para ser utilizado en SPEL.
+Proyecto desarrollado por Patricio Jara Q.
 
 ## Licencia
 
