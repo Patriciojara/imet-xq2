@@ -174,8 +174,8 @@ git push -u origin nombre-rama
 
 ## Autores
 
-Proyecto desarrollado por el equipo de SPEL.
+Proyecto desarrollado por Patricio Jara Q. Para ser utilizado en SPEL.
 
 ## Licencia
 
-Agregar aquí la licencia del proyecto si corresponde.
+Aun no tiene.
